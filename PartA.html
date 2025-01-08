@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Part A</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="menu">
+        <ul>
+          <li class="active">Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <main>
+        <section class="posts">
+          <article class="post featured">
+            <h2>Featured Post</h2>
+            <p class="content">Featured content here</p>
+          </article>
+          <article class="post">
+            <h2>Regular Post</h2>
+            <p class="content">Regular content here</p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script>
+    // Part A: DOM Selection
+    // 1. Given this HTML structure:
+    // Write code to:
+    // ● Find all post paragraphs and change their font size to 18px and color to dark
+    // gray
+    const postPara = document.querySelectorAll(".content");
+    postPara.forEach((para) => {
+      para.style.fontSize = "18px";
+      para.style.color = "darkgray";
+    });
+    // ● Locate the active menu item and add a bottom border of 2px solid blue
+    const activeMenuItem = document.querySelector(".active");
+    activeMenuItem.style.borderBottom = "2px solid blue";
+    // ● Select the parent of the featured post and give it a light yellow background
+    const featuredPost = document.getElementsByClassName("featured")[0];
+    const parent = featuredPost.parentElement;
+    parent.style.backgroundColor = "lightyellow";
+    // ● Get the featured post's heading and make it uppercase with a red color
+    const featuredPostHeading = document.querySelector(".post.featured h2");
+    featuredPostHeading.style.textTransform = "uppercase";
+    featuredPostHeading.style.color = "red";
+
+    // 2. Create a function called addClassToElements that:
+    // ● Takes two parameters: a selector (string) and a class name (string)
+    function addClassToElements(selector, className) {
+      const elem = document.querySelectorAll(selector);
+      elem.forEach((selectElem) => {
+        selectElem.classList.add(className);
+      });
+      return elem.length;
+    }
+  </script>
+</html>
